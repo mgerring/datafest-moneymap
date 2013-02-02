@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, request, render_template, Response
 import os
 
 ROOT = os.path.abspath(os.path.dirname(__file__))
@@ -9,7 +9,7 @@ app.debug = True
 
 @app.route("/")
 def home():
-	return 'yo dawg'
+	return render_template('base.html')
 
 if __name__ == '__main__':
 	app.run()

@@ -1,14 +1,6 @@
+var map = L.map('map',{maxZoom: 19});
+var layer = new L.StamenTileLayer("terrain");
+map.addLayer(layer).setView(new L.LatLng(37.7810841,-122.4105332), 13);
 (function($){
-	$('form').find('input[name="file"]').on('change', function() {
-		var filename = $(this).val().split("\\").pop();
-		var ext = filename.split(".").pop();
-		console.log(ext);
-		var text = $(this).siblings('span');
-		if(ext != "csv") {
-			$(this).val("");
-			text.addClass('error').text("CSVs only!");
-		} else {
-			text.removeClass('error').text(filename);
-		}
-	});
-})($)
+
+})($);
