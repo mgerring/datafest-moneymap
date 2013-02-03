@@ -35,9 +35,9 @@ outfile = open('public/data/ca_assembly_parsed.json','w')
 outfile.write(json.dumps(assembly_short_json))
 outfile.close"""
 
-csvfile = open('public/data/senatefileready.csv')
+csvfile = open('public/data/assemblyfileready.csv')
 outjson = []
-outfile = open('public/data/ca/data-u.json','w')
+outfile = open('public/data/ca/data-l.json','w')
 csvwriter = csv.DictReader(csvfile)
 
 for row in csvwriter:
