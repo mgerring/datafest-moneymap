@@ -26,7 +26,7 @@ function addOverlay(house) {
             $("#mouseinfo").html(d.properties.name + "<br/>" +
               "$/eligible: " + layer_data[d.properties.district]["moneypereligiblevoter"] + "<br/>" +
               "# Contributions: " + layer_data[d.properties.district]["nocontributions"] + "<br/>" +
-              "Total $ spent: $" + layer_data[d.properties.district]["totalmoneyspent"] + "<br/>" +
+              "Total spent: $" + layer_data[d.properties.district]["totalmoneyspent"] + "<br/>" +
               "Votes/eligible: " + vpe + "%" + "<br/>" +
               "Votes/registered: " + vpr + "%"
             );
