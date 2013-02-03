@@ -135,11 +135,47 @@ body.footer-up {
 	left:30%;
 }
 
+
+
 path {
   fill: #000;
-  fill-opacity: .2;
+  fill-opacity: .8;
   stroke: #fff;
   stroke-width: 1.5px;
+  	.apathy( @num ) {
+		fill: lighten(#b63b3d,percentage(@num));
+	}
+
+	&.apathy-1{
+		.apathy(0);
+	}
+	&.apathy-2{
+		.apathy(.05);
+	}
+	&.apathy-3{
+		.apathy(.10);
+	}
+	&.apathy-4{
+		.apathy(.15);
+	}
+	&.apathy-5{
+		.apathy(.20);
+	}
+	&.apathy-6{
+		.apathy(.25);
+	}
+	&.apathy-7{
+		.apathy(.30);
+	}
+	&.apathy-8{
+		.apathy(.35);
+	}
+	&.apathy-9{
+		.apathy(.40);
+	}
+	&.apathy-10{
+		.apathy(.45);
+	}
 }
 
 path:hover {

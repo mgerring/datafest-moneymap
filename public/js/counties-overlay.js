@@ -1,6 +1,8 @@
 var layer;
 var data;
 var layer_data;
+var scale = d3.scale.linear();
+scale.domain([1,100]).rangeRound([1,10]);
 
 function addOverlay(house) {
 
@@ -20,6 +22,7 @@ function addOverlay(house) {
         .enter()
           .append("path")
           .attr('data-name', function(d){ return d.properties.name })
+          .attr('class', function(d){var blah = scale( layer_data[d.properties.district]["votesperregisterednorm"] ); return 'apathy-'+blah; })
           .on('mouseover',function(d){
             $("#mouseinfo").html(d.properties.name + "<br/>" +
               "# Contributions: " + layer_data[d.properties.district]["nocontributions"]);
