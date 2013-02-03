@@ -23,7 +23,7 @@ function addOverlay(house) {
         .enter()
           .append("path")
           .attr('data-name', function(d){ return d.properties.name })
-          .on('click',function(d){ alert(d.properties.name) });
+          .on('mouseover',function(d){ $("#mouseinfo").text(d.properties.name) });
 
       map.on("viewreset", reset);
       reset();
