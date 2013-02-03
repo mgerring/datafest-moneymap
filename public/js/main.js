@@ -8,4 +8,12 @@ var map,
 		e.preventDefault();
 		$('#splash').hide();
 	});
+	$('footer .drawer').toggle(
+		function(){
+			$('body').addClass('footer-up');
+		},
+		function(){
+			$('body').removeClass('footer-up')
+		}
+	);
 })($);
