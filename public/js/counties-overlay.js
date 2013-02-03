@@ -1,15 +1,14 @@
 var layer;
 var data;
+var layer_data;
 
 function addOverlay(house) {
 
   var svg = d3.select(map.getPanes().overlayPane).append("svg"),
       g   = svg.append("g").attr("class", "leaflet-zoom-hide");
 
-  var layer_data;
   $.getJSON(data_dir+"ca/data-"+house+".json", function(data) {
     layer_data = data;
-    console.log($.parseJSON(layer_data.responseText));
   });
 
     d3.json(data_dir+"/ca/bound-"+house+".json", function(collection) {
@@ -21,7 +20,10 @@ function addOverlay(house) {
         .enter()
           .append("path")
           .attr('data-name', function(d){ return d.properties.name })
-          .on('mouseover',function(d){ $("#mouseinfo").text(d.properties.name) });
+          .on('mouseover',function(d){
+            $("#mouseinfo").html(d.properties.name + "<br/>" +
+              "# Contributions: " + layer_data[d.properties.district]["nocontributions"]);
+          });
 
       map.on("viewreset", reset);
       reset();
