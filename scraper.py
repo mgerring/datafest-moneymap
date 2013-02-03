@@ -15,26 +15,27 @@ def get_shape(leg_id):
 	shape = get_shape(district['boundary_id'])
 	outfile.write(shape)"""
 
-"""senate_short = open('public/data/ca_senate_short.json')
-senate_long = open('public/data/ca_senate_full')
+assembly_short = open('public/data/ca_assembly_short.json')
+assembly_long = open('public/data/ca_assembly_full')
 
-senate_short_json = json.loads(senate_short.read())
-senate_long_json = json.loads(senate_long.read())
+assembly_short_json = json.loads(assembly_short.read())
+assembly_long_json = json.loads(assembly_long.read())
 
-for i, item in enumerate(senate_long_json['features']):
-	senate_short_json['features'][i]['properties']['name'] = item['properties']['NAMELSAD']
+for i, item in enumerate(assembly_long_json['features']):
+	assembly_short_json['features'][i]['properties']['name'] = item['properties']['NAMELSAD']
+	assembly_short_json['features'][i]['properties']['district'] = int(item['properties']['SLDLST'])
 
-for item in senate_short_json['features']:
+for item in assembly_short_json['features']:
 	print item['properties']['name']
 
-senate_short.close()
-senate_long.close()
+assembly_short.close()
+assembly_long.close()
 
-outfile = open('public/data/ca_senate_parsed.json','w')
-outfile.write(json.dumps(senate_short_json))
-outfile.close"""
+outfile = open('public/data/ca_assembly_parsed.json','w')
+outfile.write(json.dumps(assembly_short_json))
+outfile.close
 
-csvfile = open('public/data/assembly-districts.csv')
+"""csvfile = open('public/data/assembly-districts.csv')
 outjson = []
 outfile = open('public/data/ca/data-l.json','w')
 csvwriter = csv.DictReader(csvfile)
@@ -45,4 +46,4 @@ for row in csvwriter:
 outfile.write( json.dumps(outjson, encoding="iso-8859-1") )
 
 outfile.close()
-csvfile.close()
+csvfile.close()"""
