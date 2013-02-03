@@ -1,5 +1,6 @@
 import requests
 import json
+import csv
 
 def get_districts(state,house):
 	return requests.get('http://openstates.org/api/v1/districts/%s/%s/?apikey=072b29bd58654fc2b44685779cb71e3c' % (state, house)).json()
@@ -14,7 +15,7 @@ def get_shape(leg_id):
 	shape = get_shape(district['boundary_id'])
 	outfile.write(shape)"""
 
-senate_short = open('public/data/ca_senate_short.json')
+"""senate_short = open('public/data/ca_senate_short.json')
 senate_long = open('public/data/ca_senate_full')
 
 senate_short_json = json.loads(senate_short.read())
@@ -31,4 +32,11 @@ senate_long.close()
 
 outfile = open('public/data/ca_senate_parsed.json','w')
 outfile.write(json.dumps(senate_short_json))
-outfile.close
+outfile.close"""
+
+csvfile = open('public/data/senate-districts.csv')
+
+csvwriter = csv.DictReader(csvfile)
+
+for row in csvwriter:
+	print row
