@@ -6,13 +6,11 @@ function addOverlay(house) {
   var svg = d3.select(map.getPanes().overlayPane).append("svg"),
       g   = svg.append("g").attr("class", "leaflet-zoom-hide");
 
-  var layer_data = $.ajax({
-    type: "GET",
-    url : data_dir+"ca/data-"+house+".json",
-    async : false,
-    dataType:"json",
+  var layer_data
+  $.getJSON(data_dir+"ca/data-"+house+".json", function(data) {
+    layer_data = data;
+    console.log($.parseJSON(layer_data.responseText));
   });
-  console.log($.parseJSON(layer_data.responseText));
 
     d3.json(data_dir+"/ca/bound-"+house+".json", function(collection) {
       var bounds = d3.geo.bounds(collection),
