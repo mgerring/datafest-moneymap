@@ -1,10 +1,20 @@
 var layer;
+var data;
 
-function addOverlay(jsonFile) {
+function addOverlay(house) {
+
   var svg = d3.select(map.getPanes().overlayPane).append("svg"),
       g   = svg.append("g").attr("class", "leaflet-zoom-hide");
 
-    d3.json(jsonFile, function(collection) {
+  var layer_data = $.ajax({
+    type: "GET",
+    url : data_dir+"ca/data-"+house+".json",
+    async : false,
+    dataType:"json",
+  });
+  console.log($.parseJSON(layer_data.responseText));
+
+    d3.json(data_dir+"/ca/bound-"+house+".json", function(collection) {
       var bounds = d3.geo.bounds(collection),
           path = d3.geo.path().projection(project);
 
@@ -98,10 +108,10 @@ function make_fullscreen() {
 $(function($){
   $("#toggle [name='leg-layer']").change(function(){
     layer.remove();
-    layer = addOverlay("public/data/ca_" + $(this).val() + "_parsed.json");
+    layer = addOverlay($(this).val() );
   });
   $(window).load(function(){
-      layer = addOverlay("public/data/ca_assembly_parsed.json");
+      layer = addOverlay("l");
       make_fullscreen();
   });
 });

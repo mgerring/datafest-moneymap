@@ -34,9 +34,15 @@ outfile = open('public/data/ca_senate_parsed.json','w')
 outfile.write(json.dumps(senate_short_json))
 outfile.close"""
 
-csvfile = open('public/data/senate-districts.csv')
-
+csvfile = open('public/data/assembly-districts.csv')
+outjson = []
+outfile = open('public/data/ca/data-l.json','w')
 csvwriter = csv.DictReader(csvfile)
 
 for row in csvwriter:
-	print row
+	outjson.append( row )
+
+outfile.write( json.dumps(outjson, encoding="iso-8859-1") )
+
+outfile.close()
+csvfile.close()
