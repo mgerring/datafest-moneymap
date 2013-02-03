@@ -1,0 +1,1 @@
+web: gunicorn moneymap:app -w 3
