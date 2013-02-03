@@ -3,7 +3,7 @@
 var svg = d3.select(map.getPanes().overlayPane).append("svg"),
     g = svg.append("g").attr("class", "leaflet-zoom-hide");
 
-d3.json("public/data/CA-counties/San Francisco.geo.json", function(collection) {
+d3.json("public/data/CA-counties/all.geo.json", function(collection) {
   var bounds = d3.geo.bounds(collection),
       path = d3.geo.path().projection(project);
 
