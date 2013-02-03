@@ -3,7 +3,7 @@ var map,
 (function($){
 	map = L.map('map',{maxZoom: 19});
 	layer = new L.StamenTileLayer("toner-lite");
-	map.addLayer(layer).locate({setView: true, maxZoom: 10});
+	map.addLayer(layer).locate({setView: true, maxZoom: 7});
 	$('#splash button').click(function(e){
 		e.preventDefault();
 		$('#splash').hide();
