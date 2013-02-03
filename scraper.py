@@ -15,7 +15,7 @@ def get_shape(leg_id):
 	shape = get_shape(district['boundary_id'])
 	outfile.write(shape)"""
 
-assembly_short = open('public/data/ca_assembly_short.json')
+"""assembly_short = open('public/data/ca_assembly_short.json')
 assembly_long = open('public/data/ca_assembly_full')
 
 assembly_short_json = json.loads(assembly_short.read())
@@ -33,11 +33,11 @@ assembly_long.close()
 
 outfile = open('public/data/ca_assembly_parsed.json','w')
 outfile.write(json.dumps(assembly_short_json))
-outfile.close
+outfile.close"""
 
-"""csvfile = open('public/data/assembly-districts.csv')
+csvfile = open('public/data/senatefileready.csv')
 outjson = []
-outfile = open('public/data/ca/data-l.json','w')
+outfile = open('public/data/ca/data-u.json','w')
 csvwriter = csv.DictReader(csvfile)
 
 for row in csvwriter:
@@ -46,4 +46,4 @@ for row in csvwriter:
 outfile.write( json.dumps(outjson, encoding="iso-8859-1") )
 
 outfile.close()
-csvfile.close()"""
+csvfile.close()
