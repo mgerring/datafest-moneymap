@@ -6,7 +6,7 @@ function addOverlay(house) {
   var svg = d3.select(map.getPanes().overlayPane).append("svg"),
       g   = svg.append("g").attr("class", "leaflet-zoom-hide");
 
-  var layer_data
+  var layer_data;
   $.getJSON(data_dir+"ca/data-"+house+".json", function(data) {
     layer_data = data;
     console.log($.parseJSON(layer_data.responseText));
