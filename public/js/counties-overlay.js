@@ -22,7 +22,12 @@ function addOverlay(house) {
           .attr('data-name', function(d){ return d.properties.name })
           .on('mouseover',function(d){
             $("#mouseinfo").html(d.properties.name + "<br/>" +
-              "# Contributions: " + layer_data[d.properties.district]["nocontributions"]);
+              "$/eligible: " + layer_data[d.properties.district]["moneypereligiblevoter"] + "<br/>" +
+              "# Contributions: " + layer_data[d.properties.district]["nocontributions"] + "<br/>" +
+              "Total $ spent: " + layer_data[d.properties.district]["totalmoneyspent"] + "<br/>" +
+              "Votes/eligible: " + layer_data[d.properties.district]["votespereligible"] + "<br/>" +
+              "Votes/registered: " + layer_data[d.properties.district]["votesperregistered"]
+            );
           });
 
       map.on("viewreset", reset);
