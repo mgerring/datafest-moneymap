@@ -1,15 +1,16 @@
 var layer;
 var data;
+var layer_data;
+var scale = d3.scale.linear();
+scale.domain([1,100]).rangeRound([1,10]);
 
 function addOverlay(house) {
 
   var svg = d3.select(map.getPanes().overlayPane).append("svg"),
       g   = svg.append("g").attr("class", "leaflet-zoom-hide");
 
-  var layer_data;
   $.getJSON(data_dir+"ca/data-"+house+".json", function(data) {
     layer_data = data;
-    console.log($.parseJSON(layer_data.responseText));
   });
 
     d3.json(data_dir+"/ca/bound-"+house+".json", function(collection) {
@@ -21,7 +22,18 @@ function addOverlay(house) {
         .enter()
           .append("path")
           .attr('data-name', function(d){ return d.properties.name })
-          .on('mouseover',function(d){ $("#mouseinfo").text(d.properties.name) });
+          .attr('class', function(d){var blah = scale( layer_data[d.properties.district]["votesperregisterednorm"] ); return 'apathy-'+blah; })
+          .on('mouseover',function(d){
+            vpe = (layer_data[d.properties.district]["votespereligible"] * 100).toFixed(0);
+            vpr = (layer_data[d.properties.district]["votesperregistered"] * 100).toFixed(0);
+            $("#mouseinfo").html(d.properties.name + "<br/>" +
+              "$/eligible: " + layer_data[d.properties.district]["moneypereligiblevoter"] + "<br/>" +
+              "# Contributions: " + layer_data[d.properties.district]["nocontributions"] + "<br/>" +
+              "Total spent: $" + layer_data[d.properties.district]["totalmoneyspent"] + "<br/>" +
+              "Votes/eligible: " + vpe + "%" + "<br/>" +
+              "Votes/registered: " + vpr + "%"
+            );
+          });
 
       map.on("viewreset", reset);
       reset();
