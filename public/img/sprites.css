@@ -1,0 +1,16 @@
+.lister-1, .locationer-1{
+	background: url(sprites.png) no-repeat;
+}
+
+.lister-1{
+	background-position: -76px 0;
+	width: 65px;
+	height: 65px;
+}
+
+.locationer-1{
+	background-position: 0 0;
+	width: 65px;
+	height: 65px;
+}
+
