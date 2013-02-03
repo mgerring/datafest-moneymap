@@ -3,5 +3,8 @@ var layer = new L.StamenTileLayer("toner-lite");
 map.addLayer(layer).locate({setView: true, maxZoom: 16});
 
 (function($){
-
+	$('#splash button').click(function(e){
+		e.preventDefault();
+		$('#splash').hide();
+	});
 })($);
