@@ -685,7 +685,7 @@ header h1 span {
   left: 0;
   right: 0;
   padding: 20px;
-  background: white;
+  background: rgba(255, 255, 255, 0.8);
   z-index: 5;
   width: 74.05%;
   margin-right: 3.8%;
@@ -693,6 +693,7 @@ header h1 span {
   min-height: 1px;
   margin-left: 8.65%;
   overflow: auto;
+  display: none;
 }
 #splash img {
   max-width: 100%;
@@ -704,6 +705,7 @@ footer {
   left: 0;
   z-index: 3;
   width: 100%;
+  background-color: rgba(255, 255, 255, 0.7);
 }
 footer .drawer {
   position: absolute;
@@ -737,14 +739,12 @@ footer a.locationer {
   width: 65px;
   height: 65px;
 }
-body.footer-up #map {
-  bottom: 121px;
-}
 body.footer-up footer .drawer {
   bottom: 120px;
 }
 body.footer-up footer .inner {
   bottom: 0;
+  left: 0;
   height: 120px;
   padding-top: 10px;
 }
@@ -757,35 +757,50 @@ path {
   stroke: #fff;
   stroke-width: 1.5px;
 }
-path.apathy-1 {
+.apathy-1 {
   fill: #b63b3d;
+  background-color: #b63b3d;
 }
-path.apathy-2 {
+.apathy-2 {
   fill: #c34749;
+  background-color: #c34749;
 }
-path.apathy-3 {
+.apathy-3 {
   fill: #ca5a5c;
+  background-color: #ca5a5c;
 }
-path.apathy-4 {
+.apathy-4 {
   fill: #d06e6f;
+  background-color: #d06e6f;
 }
-path.apathy-5 {
+.apathy-5 {
   fill: #d68182;
+  background-color: #d68182;
 }
-path.apathy-6 {
+.apathy-6 {
   fill: #dc9495;
+  background-color: #dc9495;
 }
-path.apathy-7 {
+.apathy-7 {
   fill: #e3a7a8;
+  background-color: #e3a7a8;
 }
-path.apathy-8 {
+.apathy-8 {
   fill: #e9bbbb;
+  background-color: #e9bbbb;
 }
-path.apathy-9 {
+.apathy-9 {
   fill: #efcece;
+  background-color: #efcece;
 }
-path.apathy-10 {
+.apathy-10 {
   fill: #f5e1e1;
+  background-color: #f5e1e1;
+}
+.key-square {
+  height: 50px;
+  width: 50px;
+  display: block;
 }
 path:hover {
   fill: brown;
